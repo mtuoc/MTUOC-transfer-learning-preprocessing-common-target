@@ -1,0 +1,105 @@
+MTUOC: /MTUOC
+
+VERBOSE: True
+LOG_FILE: process.log
+DELETE_TEMP: False
+
+corpusA: corpus-fra-spa.txt
+#L3-L2 corpus
+corpusB: corpus-oci-spa.txt
+#L1-L2 corpus
+valsizeA: 1000
+evalsizeA: 1000
+valsizeB: 1000
+evalsizeB: 1000
+L3code3: fra
+L3code2: fr
+L2code3: spa
+L2code2: es
+L1code3: oci
+L1code2: oc
+
+L3_DICT: /MTUOC/fra.dict
+L2_DICT: /MTUOC/spa.dict
+L1_DICT: None
+
+#state None or null.dict if not word form dictionary available for that languages
+
+L3_TOKENIZER: MTUOC_tokenizer_fra.py
+TOKENIZE_L3: False
+L2_TOKENIZER: MTUOC_tokenizer_spa.py
+TOKENIZE_L2: False
+L1_TOKENIZER: MTUOC_tokenizer_fra.py
+TOKENIZE_L1: False
+
+###PREPARATION
+REPLACE_EMAILS: True
+EMAIL_CODE: "@EMAIL@"
+REPLACE_URLS: True
+URL_CODE: "@URL@"
+
+TRAIN_L1_TRUECASER: True
+TRUECASE_L1: False
+L1_TC_MODEL: auto
+#if auto the name will be tc.+SLcode2
+
+TRAIN_L3_TRUECASER: True
+TRUECASE_L3: False
+L3_TC_MODEL: auto
+#if auto the name will be tc.+TLcode2
+
+TRAIN_L2_TRUECASER: True
+TRUECASE_L2: False
+L2_TC_MODEL: auto
+#if auto the name will be tc.+TLcode2
+
+CLEAN: True
+MIN_TOK: 1
+MAX_TOK: 80
+
+MIN_CHAR: 1
+MAX_CHAR: 1000
+
+#SENTENCE PIECE
+TRAIN_SENTENCEPIECE: True
+
+SAMPLE_SIZE: 123000
+bos: <s>
+#<s> or None
+eos: </s>
+#</s> or None
+JOIN_LANGUAGES: True
+SPLIT_DIGITS: True
+VOCABULARY_THRESHOLD: 5
+
+CONTROL_SYMBOLS: ""
+USER_DEFINED_SYMBOLS: "<tag0>,<tag1>,<tag2>,<tag3>,<tag4>,<tag5>,<tag6>,<tag7>,<tag8>,<tag9>,<tag10>,</tag0>,</tag1>,</tag2>,</tag3>,</tag4>,</tag5>,</tag6>,</tag7>,</tag8>,</tag9>,</tag10>,<tag0/>,<tag1/>,<tag2/>,<tag3/>,<tag4/>,<tag5/>,<tag6/>,<tag7/>,<tag8/>,<tag9/>,<tag10/>,"
+SP_MODEL_PREFIX: spmodel
+MODEL_TYPE: bpe
+#one of unigram, bpe, char, word
+VOCAB_SIZE: 32000
+CHARACTER_COVERAGE: 1.0
+CHARACTER_COVERAGE_SL: 1.0
+CHARACTER_COVERAGE_TL: 1.0
+INPUT_SENTENCE_SIZE: 5000
+
+
+#GUIDED ALIGNMENT
+#TRAIN CORPUS
+GUIDED_ALIGNMENT: True
+ALIGNER: eflomal
+#one of eflomal, fast_align, simalign, awesome
+DELETE_EXISTING: True
+SPLIT_LIMIT: 1000000
+#For efomal, max number of segments to align at a time
+
+#VALID CORPUS
+GUIDED_ALIGNMENT_VALID: True
+ALIGNER_VALID: eflomal
+#one of eflomal, fast_align, simalign, awesome
+DELETE_EXISTING_VALID: True
+
+VERBOSE: True
+LOG_FILE: process.log
+DELETE_TEMP: False
+
